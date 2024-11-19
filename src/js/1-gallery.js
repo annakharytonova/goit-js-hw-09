@@ -1,17 +1,6 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-const lightbox = new SimpleLightbox('.gallery a', {
-  // captionsData: 'alt', // Підпис з атрибута alt
-  // captionDelay: 250, // Затримка в мілісекундах
-});
-
-// new SimpleLightbox('.some-element a', {
-//   /* options */
-// });
-
-console.log(SimpleLightbox);
-
 const images = [
   {
     preview:
@@ -84,33 +73,39 @@ function addPictures(pictures) {
   return pictures
     .map(
       ({ preview, original, description }) => `
-  <li class="gallery-item">
-	<a class="gallery-link" href="${original}>
-		<img 
-			class="gallery-image" 
-			src="${preview}" 
-			alt="${description}" 
-			/>
-	</a>
-</li>
-
-    `
+        <li class="gallery-item">
+          <a class="gallery-link" href="${original}">
+            <img 
+              class="gallery-image" 
+              src="${preview}" 
+              alt="${description}" 
+            />
+          </a>
+        </li>`
     )
     .join('');
 }
 
 container.insertAdjacentHTML('beforeend', addPictures(images));
 
-container.addEventListener('click', event => {
-  event.preventDefault();
+// container.addEventListener('click', event => {
+//   event.preventDefault();
 
-  if (event.target.classList.contains('gallery-image')) {
-    const largeImage = event.target.dataset.source;
-    console.log('largeImage', largeImage);
+//   if (event.target.classList.contains('gallery-image')) {
+//     const largeImage = event.target.src;
+//     console.log('largeImage', largeImage);
 
-    const image = images.find(item => item.original === largeImage);
-    console.log(image);
+//     const image = images.find(item => item.original === largeImage);
+//     console.log(image);
 
-    const description = event.target.alt;
-  }
+//     const description = event.target.alt;
+//   }
+// });
+
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+  overlayOpacity: 0.8,
 });
+
+console.log(SimpleLightbox);

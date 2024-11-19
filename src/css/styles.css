@@ -1,18 +1,62 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
-/* Common styles */
 @import url('./reset.css');
-/* @import url('./base.css');
-@import url('./container.css');
-@import url('./animations.css');
 
-/* Sections style */
-/* @import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
-@import url('./footer.css'); */
+body {
+  max-width: 1128px;
+  padding: 0 156px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1128px;
+  justify-content: center;
+  margin: 0px;
+  padding: 0;
+  gap: 24px;
+}
+
+.gallery-item {
+  flex-basis: calc((100% - 48px) / 3);
+  overflow: hidden;
+}
+
+.gallery-link {
+  cursor: pointer;
+}
+
+.gallery-image {
+  height: 200px;
+  object-fit: cover;
+}
+.simple-lightbox {
+  background-color: rgba(46, 47, 66, 0.8);
+}
+
+.sl-wrapper .sl-navigation button.sl-next {
+  color: #ffffff;
+}
+.sl-wrapper .sl-navigation button.sl-prev {
+  color: #ffffff;
+}
+.sl-wrapper button.sl-close {
+  color: #ffffff;
+}
+
+/* .sl-counter .sl-current {
+  color: #ffffff;
+}
+
+.sl-counter .sl-total {
+  color: #ffffff;
+} */
+
+.sl-wrapper div.sl-counter {
+  color: #ffffff;
+}
