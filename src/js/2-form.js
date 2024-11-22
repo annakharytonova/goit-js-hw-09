@@ -50,10 +50,10 @@ function handleSubmit(event) {
     return;
   }
 
+  console.log(formData);
+
   form.reset();
   localStorage.removeItem(LS_KEY);
   formData.email = '';
   formData.message = '';
 }
-
-console.log(formData);
